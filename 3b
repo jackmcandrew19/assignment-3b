@@ -1,0 +1,27 @@
+# Define the item cost constants
+LARGE_PIZZA_COST = 6.00
+XL_PIZZA_COST = 10.00
+TOPPING_COSTS = [0, 1.00, 1.75, 2.50, 3.35]
+HST_RATE = 0.13
+
+# Ask the user for the pizza size and number of toppings
+pizza_size = input("Enter pizza size (Large or Extra Large): ")
+num_toppings = int(input("Enter number of toppings (1-4): "))
+
+# Calculate the cost of the pizza based on the size and number of toppings
+if pizza_size == "Large":
+    pizza_cost = LARGE_PIZZA_COST + TOPPING_COSTS[num_toppings]
+elif pizza_size == "Extra Large":
+    pizza_cost = XL_PIZZA_COST + TOPPING_COSTS[num_toppings]
+else:
+    print("Invalid pizza size")
+    exit()
+
+# Calculate the tax and total cost of the pizza
+tax = pizza_cost * HST_RATE
+total_cost = pizza_cost + tax
+
+# Display the subtotal, tax, and total cost of the pizza to the user
+print("Subtotal: ${:.2f}".format(pizza_cost))
+print("Tax (HST): ${:.2f}".format(tax))
+print("Total: ${:.2f}".format(total_cost)) 
